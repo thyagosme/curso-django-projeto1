@@ -23,8 +23,11 @@ def home(request):
 
 
 def recipe(request, id):
+    recipe = Recipe.objects.filter(
+            id=id,
+            is_published = True).order_by('-id').first()
     
     return render(request,'recipes/pages/recipe-view.html', context={'recipe':
-       make_recipe(),
+       recipe,
        'is_detail_page':True})
 
