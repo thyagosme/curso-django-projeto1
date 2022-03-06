@@ -11,8 +11,6 @@ def category(request, category_id):
     return render(request,'recipes/pages/category.html', context={'recipes':
         recipes})
 
-    # return render(request,'recipes/pages/home.html', context={'recipes':
-    #     [make_recipe() for _ in range(10)]})
 def home(request):
     recipes = Recipe.objects.filter(is_published = True).order_by()
     return render(request,'recipes/pages/home.html', context={'recipes':
@@ -20,6 +18,7 @@ def home(request):
 
 
 def recipe(request, id):
+    
     return render(request,'recipes/pages/recipe-view.html', context={'recipe':
        make_recipe(),
        'is_detail_page':True})
