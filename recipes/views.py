@@ -21,7 +21,6 @@ def home(request):
     return render(request,'recipes/pages/home.html', context={'recipes':
         recipes})
 
-
 def recipe(request, id):
     recipe = get_object_or_404(Recipe, pk=id, is_published=True,)
     
