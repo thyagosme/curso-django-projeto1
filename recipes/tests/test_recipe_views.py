@@ -1,3 +1,5 @@
+from unittest import skip
+
 from django.urls import resolve, reverse
 from recipes import views
 from recipes.models import Recipe
@@ -6,12 +8,15 @@ from .test_recipe_base import RecipeTestBase
 
 # Create your tests here.
 
-     
-class RecipeViewsTest(RecipeTestBase):
    
+   
+class RecipeViewsTest(RecipeTestBase):
+    @skip('Estou pulando este teste!!!')  
     def test_recipe_home_views_function_is_correct(self):
         view = resolve(reverse('recipes:home')) # busca dados no arquivo recipe.urls
         self.assertIs(view.func, views.home)
+        self.assertIs()
+     
         
     def test_recipe_home_view_returns_status_code_200_OK(self):
         response = self.client.get(reverse('recipes:home'))
