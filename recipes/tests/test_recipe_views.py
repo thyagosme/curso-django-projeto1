@@ -9,9 +9,6 @@ from .test_recipe_base import RecipeTestBase
      
 class RecipeViewsTest(RecipeTestBase):
    
-    def tearDown(self) -> None:
-        return super().tearDown()
-    
     def test_recipe_home_views_function_is_correct(self):
         view = resolve(reverse('recipes:home')) # busca dados no arquivo recipe.urls
         self.assertIs(view.func, views.home)
@@ -25,7 +22,6 @@ class RecipeViewsTest(RecipeTestBase):
         self.assertTemplateUsed(response, 'recipes/pages/home.html')
     
     def test_recipe_home_template_shows_no_recipes_found_if_no_recipes(self):
-        Recipe.objects.all().delete()
         response = self.client.get(reverse('recipes:home'))
         self.assertIn(
             '<h1>No recipes found here! 😭</h1>',
@@ -33,14 +29,16 @@ class RecipeViewsTest(RecipeTestBase):
         )
 
     def test_recipe_home_template_loads_recipes(self):
-    
+        recipe1 = self.make_recipe(author_data={'first_name': 'Thyago1'}, category_data={'name': 'café da manhã'}, preparation_time=15)
+        #recipe2 = self.make_recipe(author_data={'first_name': 'Thyago2'}, category_data={'name': 'café da manhã'}, preparation_time=15)
         response = self.client.get(reverse('recipes:home'))
         content = response.content.decode('utf-8')
         response_context_recipes = response.context['recipes']
 
         self.assertIn('Recipe Title', content)
-        self.assertIn('10 Minutos', content)
+        self.assertIn('15 Minutos', content)
         self.assertIn('5 Porções', content)
+        self.assertIn('café da manhã', content)
         self.assertEqual(len(response_context_recipes), 1) 
     
 
@@ -57,8 +55,6 @@ class RecipeViewsTest(RecipeTestBase):
         self.assertEqual(response.status_code, 404)
 
     def test_recipe_detail_view_returns_404_if_no_recipes_found(self):
-        
-        Recipe.objects.all().delete()
         response = self.client.get(
             reverse('recipes:recipe', kwargs={'id': 1})
         )
