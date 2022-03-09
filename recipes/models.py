@@ -33,9 +33,5 @@ class Recipe(models.Model):
           return self.title
     
     
-if __name__ == '__main__':
-    print('##########################')
-    
-#    pprint(Category())
 
     
