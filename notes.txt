@@ -142,7 +142,7 @@ monitorar somente um teste -  ptw -- -k 'nome do teste'
 COMANDO COVERAGE
 instalar coverage - pip install coverage
 ver perncentual de covertura - coverage run --omit='*/venv/*' -m pytest
-criar relatório - coverage html
+criar relatório - coverage run -m pytest ou  e  coverage html
 
 
 #########################################################################################
