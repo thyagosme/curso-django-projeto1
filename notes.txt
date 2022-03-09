@@ -1,0 +1,176 @@
+ATUALIZAÇÕES BASICAS
+
+python -m pip install pip setuptools wheel --upgrade
+python -m pip install --upgrade pip
+
+#########################################################################################
+
+ INSTALAR DJANGO 
+ pip install django
+ django-admin --version
+
+ 
+#########################################################################################
+
+CRIANDO AMBIENTE VIRTUAL
+
+python -m venv venv
+#######################################P##################################################
+
+ATIVANDO AMBIENTE VIRTUAL 
+
+./venv/Scripts/Activate
+
+source ./venv/Scripts/Activate
+
+GITHUB
+
+git config --global user.name "seu nome"
+git config --global user.email "seu-email@email.com"
+git config --global color.ui true
+git config --global.defaultBranch main
+git init
+git add README.md
+
+ssh-keygen
+
+
+Vá no site do github e:
+- vá em settings clicando no usuário
+- abra SSH and GPG keys
+- crie uma nova chage e cole o conteúdo do arquivo id_rsa.pub
+-copie o endereço do tipo git@github.com:thyagosme/nome_repositorio.git
+
+git remote add origin  git@github.com:thyagosme/nome_repositorio.git
+git push --set-upstream origin main  (yes)
+git remote -v
+
+
+comitando
+
+
+
+#########################################################################################
+INICIANDO UM PROJETO
+
+django-admin startproject nome_projeto .
+
+#########################################################################################
+
+INICIANDO SERVIDOR NO MODO DE DESENVOLVIMENTO 
+
+python manage.py runserver
+
+    check
+    compilemessages
+    createcachetable
+    dbshell
+    diffsettings
+    dumpdata
+    flush
+    inspectdb
+    loaddata
+    makemessages
+    makemigrations
+    migrate
+    runserver
+    sendtestemail
+    shell
+    showmigrations
+    sqlflush
+    sqlmigrate
+    sqlsequencereset
+    squashmigrations
+    startapp
+    startproject
+    test
+    testserver
+
+
+#########################################################################################
+
+CRIAR APLICATIVO
+
+python manage.py startapp nome_app
+#########################################################################################
+
+VALIDAÇÃO DE HTML 
+
+https://validator.w3.org/#validate_by_input
+
+
+#########################################################################################
+
+VISUALAR PASTAS EM ARVORE
+
+adicione "explorer.compactFolders": false ao arquivo settings.json
+
+Obs.: Para abrir este arquivo basta Ctrl+,
+
+#########################################################################################
+
+
+PROBLEMAS PARA SETAR O venv
+
+Go to the parent folder in which venv is there through a command prompt.
+
+Type code . and Enter. [It is working on both Windows and Linux for me.]
+
+
+
+#########################################################################################
+GERANDO ARQUIVO requirements.txt
+
+1- ative o ambiente virtual 
+2- pip3 freeze > requirements.txt
+
+#########################################################################################
+
+EXECUTANDO PYTEST
+
+Para não imprimir - pytest
+Para imprimir - pytest -rP -
+
+#########################################################################################
+
+PYTEST WATCH
+
+monitorar todos os testes - ptw
+monitorar somente um teste -  ptw -- -k 'nome do teste'
+
+#########################################################################################
+COMANDO COVERAGE
+instalar coverage - pip install coverage
+ver perncentual de covertura - coverage run --omit='*/venv/*' -m pytest
+criar relatório - coverage html
+
+
+#########################################################################################
+
+PYTEST SHELL 
+
+entrar - python manage.py shell
+duplicar receita com id=1
+
+- from recipes.models import Recipe
+- r = Recipe.objects.get(id=1)
+- r.id = None
+
+executar script no pytest shell -  ./manage.py shell << my_script.py
+
+
+pegar todas as recipes
+from recipes.models import Recipe
+recipes = Recipe.objects.all()
+
+for recipe in recipes: print(recipe.title);
+
+
+#########################################################################################
+
+MIGRATIONS
+
+
+python manage.py migrate
+
+python manage.py makemigrations
