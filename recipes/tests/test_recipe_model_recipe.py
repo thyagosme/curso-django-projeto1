@@ -1,4 +1,6 @@
 
+from unittest import skip
+
 from django.core.exceptions import ValidationError
 from parameterized import parameterized
 
@@ -6,9 +8,14 @@ from .test_recipe_base import Recipe, RecipeTestBase
 
 
 class RecipeModelTest(RecipeTestBase):
+    
     def setUp(self) -> None:
         self.recipe = self.make_recipe()
         return super().setUp()
+    
+    def tearDown(self) -> None:
+        del self.recipe
+        return super().tearDown()
     
     def make_recipe_no_defaults(self):
         recipe = Recipe( 
@@ -31,8 +38,10 @@ class RecipeModelTest(RecipeTestBase):
         ('preparation_time_unit', 65),
         ('servings_unit', 65),
     ])
+    #@skip('Teste falhando porque foi setado slug unico!!!')
     def test_recipe_fields_max_length(self, field, max_length):
         setattr(self.recipe, field, 'A' * (max_length + 1))
+      
         with self.assertRaises(ValidationError):
             self.recipe.full_clean()
     def test_recipe_title_raises_error_if_title_has_more_than_65_chars(self):
@@ -41,14 +50,15 @@ class RecipeModelTest(RecipeTestBase):
         with self.assertRaises(ValidationError):
             self.recipe.full_clean()
     
-    
+    #@skip('Teste falhando porque foi setado slug unico!!!')
     def test_recipe_preparation_steps_is_html_is_false_by_default(self):
         recipe = self.make_recipe_no_defaults()
         recipe.full_clean()
         recipe.save()
       
         self.assertFalse(recipe.preparation_steps_is_html)
-
+        
+    #@skip('Teste falhando porque foi setado slug unico!!!')
     def test_recipe_is_publeshed_is_false_by_default(self):
         recipe = self.make_recipe_no_defaults()
         recipe.full_clean()
