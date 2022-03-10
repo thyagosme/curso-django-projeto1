@@ -140,3 +140,8 @@ class RecipeViewsTest(RecipeTestBase):
         )
         self.assertEqual(response.status_code, 404)
         
+    def test_recipe_search_term_is_on_page_title_and_scaped(self):
+        url = reverse('recipes:search')+'?q=<Teste>'
+        response = self.client.get(url)
+        content = response.content.decode('utf-8')
+        self.assertIn('Search for &quot;&lt;Teste&gt;&quot;', content)
