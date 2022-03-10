@@ -131,5 +131,12 @@ class RecipeViewsTest(RecipeTestBase):
 
     def test_recipe_search_loads_the_correct_template(self):
         """It were created a view function search and the search.html file"""
-        response = self.client.get(reverse('recipes:search'))
+        response = self.client.get(reverse('recipes:search' ) +'?q=valor')
         self.assertTemplateUsed(response, 'recipes/pages/search.html')
+
+    def test_recipe_search_raises_404_if_no_search_term(self):
+        response = self.client.get(
+            reverse('recipes:search')
+        )
+        self.assertEqual(response.status_code, 404)
+        
