@@ -32,8 +32,6 @@ def category(request, category_id):
 def home(request):
     recipes = Recipe.objects.filter(is_published = True).order_by('-id')
     
-    messages.error(request, 'EPA, VOCÊ FOI PESQUISAR ALGO QUE EU VI!')
-    
     page_obj, pagination_range = make_pagination(request, recipes, PER_PAGE)
  
     
