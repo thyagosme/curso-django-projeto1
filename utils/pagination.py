@@ -1,5 +1,7 @@
 import math
 
+from django.core.paginator import Paginator
+
 
 def is_odd(num):
     return True if num%2!=0 else False
@@ -42,9 +44,25 @@ def make_pagination_range(
     }
 
 
+def make_pagination(request, queryset, per_page, qty_pages= 4):
+       
+    try:
+        current_page = int(request.GET.get('page',1))
+    except ValueError:
+        current_page = 1
+    paginator =  Paginator(queryset, per_page)
+    page_obj = paginator.get_page(current_page)
+    try:
+        page_range = list(paginator.page_range)
+    except ValueError:
+        page_range = list(range(1,qty_pages+1))
+        
+    pagination_range = make_pagination_range(
+        page_range = page_range , 
+        qty_pages = qty_pages, 
+        current_page = current_page,)
 
-
-
+    return page_obj, pagination_range
 
 if __name__ == "__main__":
     print(make_pagination_range(
