@@ -1,0 +1,67 @@
+b'
+<!DOCTYPE html>\n<html lang="pt-BR">\n\n
+
+<head>\n\n\n\n
+    <meta charset="UTF-8">\n
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">\n
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">\n\n \n
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/fontawesome.min.css" \n
+        integrity="sha512-P9vJUXK+LyvAzj8otTOKzdfF1F3UYVl13+F8Fof8/2QNb8Twd6Vb+VD52I7+87tex9UXxnzPgWA3rH96RExA7A==" \n
+        crossorigin="anonymous" referrerpolicy="no-referrer" />\n\n
+    <link rel="preconnect" href="https://fonts.googleapis.com">\n
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>\n
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@900&display=swap" rel="stylesheet">\n\n\n
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/brands.min.css" \n
+        integrity="sha512-sVSECYdnRMezwuq5uAjKQJEcu2wybeAPjU4VJQ9pCRcCY4pIpIw4YMHIOQ0CypfwHRvdSPbH++dA3O4Hihm/LQ==" \n
+        crossorigin="anonymous" referrerpolicy="no-referrer" />\n
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/solid.min.css" \n
+        integrity="sha512-tk4nGrLxft4l30r9ETuejLU0a3d7LwMzj0eXjzc16JQj+5U1IeVoCuGLObRDc3+eQMUcEQY1RIDPGvuA7SNQ2w==" \n
+        crossorigin="anonymous" referrerpolicy="no-referrer" />\n\n
+    <link rel="stylesheet" href="/static/recipes/css/styles.css">\n \n\n\n \n \n\n \n\n\n<title>Register Recipes</title>
+    \n
+
+    <head>\n\n\n
+
+    <body>\n <header class="main-header-container">\n <div class="main-header container">\n <h1>\n <a class="main-logo"
+                        href=" /">\n <i class="fas fa-address-book main-logo-icon"></i>\n <span
+                            class="main-logo-text">Recipes</span>\n </a>\n </h1>\n </div>\n\n</header>\n <div
+            class="search-container">\n <div class="container">\n <form class="search-form" action=" /recipes/search/">
+                    \n <input type="search" method="GET" class="search-input" name="q" value="" required>\n <button
+                        class="search-button" type="submit"> <i class="fas fa-search"></i></button>\n </form>\n </div>
+            \n\n</div>\n\n <main class="main-content-container">\n \n <div class="main-content center container">\n <h2>
+                    Register 2</h2>\n </div>\n \n\n <div class="main-content container">\n <form
+                    action=" /authors/register/create/" method="POST">\n <input type="hidden" name="csrfmiddlewaretoken"
+                        value="JApbGzDBwmXZcslR4wHXZD3IG9jyrxbQGxwhCMpwHmWsaYfG8SOOFAA218ylDaQ4">\n\n <div
+                        class="form-content form-content-grid">\n \n <div class="form-group">\n <label
+                                for="id_first_name">First name</label>\n <input type="text" name="first_name"
+                                value="first" maxlength="150" placeholder="Ex.: John" id="id_first_name">\n\n \n\n \n
+                        </div>\n \n <div class="form-group">\n <label for="id_last_name">Last name</label>\n <input
+                                type="text" name="last_name" value="last" maxlength="150" placeholder="Ex.: Doe"
+                                id="id_last_name">\n\n \n\n \n </div>\n \n <div class="form-group">\n <label
+                                for="id_username">Username</label>\n <input type="text" name="username" maxlength="150"
+                                placeholder="Your username" css="a-css-class" required id="id_username">\n\n \n <p
+                                class="help-text">Required. 150 characters or fewer. Letters, digits and @/./+/-/_ only.
+                            </p>\n \n\n <ul class="errorlist">
+                                <li>This field must not be empty</li>
+                            </ul>\n </div>\n \n <div class="form-group">\n <label for="id_email">E-mail</label>\n <input
+                                type="email" name="email" value="email@anyemail.com" maxlength="254"
+                                placeholder="Your e-mail" id="id_email">\n\n \n <p class="help-text">The e-mail must be
+                                valid.</p>\n \n\n \n </div>\n \n <div class="form-group">\n <label
+                                for="id_password">Password</label>\n <input type="password" name="password"
+                                placeholder="Type your password" required id="id_password">\n\n \n <p class="help-text">
+                                Password must have at least one uppercase letter, one lowercase letter and one number.
+                                The length should be at least 8 characters.</p>\n \n\n \n </div>\n \n <div
+                            class="form-group">\n <label for="id_password2">Password2</label>\n <input type="password"
+                                name="password2" placeholder="Repeat your password" required id="id_password2">\n\n \n\n
+                            \n </div>\n \n </div>\n\n \n <div class="form-content form-content-grid">\n <div
+                            class="form-group">\n <div class="message message-error">\n There are errors in the form,
+                                please fix them and send again.\n </div>\n </div>\n </div>\n \n\n <div
+                        class="form-content form-content-grid">\n <div class="form-group button">\n <button
+                                type="submit">Send</button>\n </div>\n </div>\n </form>\n </div>\n\n \n </main>\n
+        <footer class="main-footer">\n <div class="developer">\n <a href="https://www.otaviomiranda.com.br/"
+                    target="_blank" rel="noreferrer noopener">By Ot\xc3\xa1vio Miranda</a>\n </div>\n \n <div
+                class="powered">\n <a href="https://www.djangoproject.com/" target="_blank"
+                    rel="noreferrer noopener">Powered by Django</a>\n </div>\n \n</footer> \n
+    </body>\n\n\n
+
+</html>'
