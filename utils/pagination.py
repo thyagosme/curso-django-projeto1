@@ -64,13 +64,7 @@ def make_pagination(request, queryset, per_page, qty_pages= 4):
 
     return page_obj, pagination_range
 
-if __name__ == "__main__":
-    print(make_pagination_range(
-            page_range=list(range(1, 21)),
-            qty_pages=5,
-            current_page=20,
-        )['pagination'])
-    
+
     
    
    
