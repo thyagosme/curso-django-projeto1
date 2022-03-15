@@ -1,6 +1,6 @@
 from unittest import TestCase  # faster than from jango...
 
-from utils.pagination import make_pagination_range
+from utils.pagination import is_odd, make_pagination_range
 
 
 class PaginationTest(TestCase):
@@ -110,8 +110,24 @@ class PaginationTest(TestCase):
             qty_pages=4,
             current_page=21,
         )['pagination']
+        
         self.assertEqual([17, 18, 19, 20], pagination)
         
+        pagination = make_pagination_range(
+            page_range=list(range(1, 21)),
+            qty_pages=5,
+            current_page=1,
+        )['pagination']
+        self.assertEqual([1, 2, 3, 4, 5], pagination)
         
         
         
+    # def test_make_pagination_range_uses_page_1_if_page_query_is_invalid(self):
+    #     pagination = make_pagination_range(
+    #     page_range=list(range(1, 21)),
+    #     qty_pages=4,
+    #     current_page='1A',
+    # )['pagination']
+    #     self.assertEqual([17, 18, 19, 20], pagination)
+
+    
