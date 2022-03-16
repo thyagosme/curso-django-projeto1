@@ -173,3 +173,12 @@ MIGRATIONS
 python manage.py migrate
 
 python manage.py makemigrations
+
+
+
+#########################################################################################
+
+
+CRIAR USUÁRIO NO DJANGO admin
+
+python manage.py createsuperuser
