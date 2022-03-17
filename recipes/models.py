@@ -10,6 +10,7 @@ class Category(models.Model):
           return self.name
       
 class Recipe(models.Model):
+    
     title = models.CharField(max_length=65)
     description = models.CharField(max_length=165)
     slug = models.SlugField(unique=True)
