@@ -182,3 +182,13 @@ python manage.py makemigrations
 CRIAR USUÁRIO NO DJANGO admin
 
 python manage.py createsuperuser
+
+
+#########################################################################################
+SELECIONANDO TESTES PARA SEREM EXECUTADOS
+
+usar o decorator sobre o teste ou classe:  @pytest.marker.pytest_init_marker
+
+execução de uma categoria: pytest -m 'pytest_init_marker'
+execução sem uma categoria: pytest -m 'not pytest_init_marker'
+execuçao de um teste: pytest -k 'nome_teste'
