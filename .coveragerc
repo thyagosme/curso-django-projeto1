@@ -1,3 +1,5 @@
 [run]
 branch = True
-omit = venv/*,**/*test*.py, manage.py,__localcode/*,./project/settings.py, .\project\*
+omit = venv/*,**/*test*.py, manage.py,__localcode/*,./project/settings.py,
+ ./project/*, ./utils/browser.py, ./utils/recipes/factory.py, ./authors/forms_unused.py,
+ */migrations/*, *__init__.py

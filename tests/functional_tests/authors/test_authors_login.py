@@ -26,12 +26,15 @@ class AuthorsLoginTest(AuthorsBaseTest):
         # Usuário digita seu usuário e senha
         username_field.send_keys(user.username)
         password_field.send_keys(string_password)
+        
+      
 
         # Usuário envia o formulário
         form.submit()
+        
 
         # Usuário vê a mensagem de login com sucesso e seu nome
         self.assertIn(
-            f'Your are logged in with {user.username}.',
+            f'Your are logged in with the user {user.username}.',
             self.browser.find_element(By.TAG_NAME, 'body').text
         )
