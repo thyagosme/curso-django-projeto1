@@ -6,10 +6,7 @@ from .base import AuthorsBaseTest
 
 class AuthorsRegisterTest(AuthorsBaseTest):
     
-    def get_by_placeholder(self, web_element, placeholder):
-        return web_element.find_element(
-            By.XPATH, f'//input[@placeholder="{placeholder}"]'
-        )
+
 
     def fill_form_dummy_data(self, form):
 
